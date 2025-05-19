@@ -8,7 +8,6 @@ export default function EventPage() {
 
   return (
     <>
-      <h1>Eventpage</h1>
       <EventsList events={events} />
     </>
   );
