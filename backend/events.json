@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"Lara Croft","image":"https://images.bauerhosting.com/legacy/empire-legacy/uploaded/tomb-raider-reboot.jpg?ar=16%3A9&fit=crop&crop=top&auto=format&w=1440&q=80","date":"2025-05-19","description":"lara croft from the tomb raider reboot","id":"e221bd1c-004c-4058-a112-2635af764fd5"},{"title":"Lara Croft","image":"https://images.app.goo.gl/ea3EoENnQoGu5yhw8","date":"2025-05-19","description":"lara croft from the tomb raider reboot","id":"4318be87-5507-4daa-9607-a00759018c6a"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}
