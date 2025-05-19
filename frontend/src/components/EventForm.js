@@ -3,6 +3,7 @@ import {
   useActionData,
   useNavigate,
   useNavigation,
+  redirect,
 } from "react-router-dom";
 
 import classes from "./EventForm.module.css";
@@ -17,7 +18,7 @@ function EventForm({ method, event }) {
   }
 
   return (
-    <Form method="post" className={classes.form}>
+    <Form method={method} className={classes.form}>
       {actionData && actionData.errors && (
         <ul>
           {Object.values(actionData.errors).map((error) => (
@@ -73,6 +74,43 @@ function EventForm({ method, event }) {
       </div>
     </Form>
   );
+}
+
+export async function action({ request, params }) {
+  const data = await request.formData();
+  const method = request.method;
+
+  const formData = {
+    title: data.get("title"),
+    image: data.get("image"),
+    date: data.get("date"),
+    description: data.get("description"),
+  };
+
+  let url = "http://localhost:8080/events";
+
+  if (method === "PATCH") {
+    const eventId = params.eventId;
+    url = "http://localhost:8080/events/" + eventId;
+  }
+
+  const response = await fetch(url, {
+    method: method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  });
+
+  if (response.status === 422) {
+    return response;
+  }
+
+  if (!response.ok) {
+    throw new Response(JSON.stringify({ message: "could not add new event" }), {
+      status: 500,
+    });
+  }
+
+  return redirect("/events");
 }
 
 export default EventForm;
